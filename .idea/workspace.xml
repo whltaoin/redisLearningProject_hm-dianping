@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fc369a7f-0807-47e5-b83f-a8ab830a3d86" name="更改" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/conf/fastcgi.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/conf/fastcgi_params" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/conf/koi-utf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/conf/koi-win" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/conf/mime.types" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/conf/nginx.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/conf/scgi_params" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/conf/uwsgi_params" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/conf/win-utf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/contrib/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/contrib/geo2nginx.pl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/contrib/unicode2nginx/koi-utf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/contrib/unicode2nginx/unicode-to-nginx.pl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/contrib/unicode2nginx/win-utf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/contrib/vim/ftdetect/nginx.vim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/contrib/vim/ftplugin/nginx.vim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/contrib/vim/indent/nginx.vim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/contrib/vim/syntax/nginx.vim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/docs/CHANGES" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/docs/CHANGES.ru" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/docs/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/docs/OpenSSL.LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/docs/PCRE.LICENCE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/docs/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/docs/zlib.LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/html/50x.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/html/hmdp/imgs/blogs/0/0/feb2a83e-5646-46c0-a982-5e43fed31b22.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/html/hmdp/imgs/blogs/0/5/e3e7c9e7-6654-4065-b47a-b86eb4541c33.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/html/hmdp/imgs/blogs/1/12/ab329e30-b4e1-446e-993b-b00be783f142.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/html/hmdp/imgs/blogs/1/2/38f7e67d-7b26-41fd-bcf5-eebf71914230.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/html/hmdp/imgs/blogs/1/2/f052df92-fc05-41a6-866e-d6da63b27645.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/html/hmdp/imgs/blogs/12/1/1afd01e5-0e16-43c2-b655-4bf733f95cfc.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/html/hmdp/imgs/blogs/12/9/aab78497-ec7a-46da-820a-0ee0bbe103a3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/html/hmdp/imgs/blogs/13/1/6b091b4c-7870-4df8-9b21-5db9852db005.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/html/hmdp/imgs/blogs/13/4/1bb3d189-a34a-4809-b062-323cda7d19a9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/html/hmdp/imgs/blogs/14/13/2ec4622e-de82-4bb3-9acf-33b589850cd2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/html/hmdp/imgs/blogs/14/13/31bc9613-3637-4a36-9082-e37ce0909cbd.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/html/hmdp/imgs/blogs/15/0/b61bf453-28fc-4824-84c8-783803464c4f.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/html/hmdp/imgs/blogs/15/3/fd5802b1-d4a5-4e45-badd-05cbc46c8c3d.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/html/hmdp/imgs/blogs/2/1/7b31a5da-4ee3-4c9e-a38a-2dbc8de0345a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/html/hmdp/imgs/blogs/2/2/852f49b7-432c-4d01-b7b1-8e152854f2a9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/html/hmdp/imgs/blogs/2/3/39d65be4-af94-458d-b6de-bc8ca20735bb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/html/hmdp/imgs/blogs/2/4/7ed91c85-975a-40dd-9f36-abb2e87a1155.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/html/hmdp/imgs/blogs/3/12/9b19dd28-1eb1-4b70-bdc2-95544eecfeb2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/html/hmdp/imgs/blogs/3/15/af0db3fa-5cf9-4eeb-a9fe-938de64bddc6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/html/hmdp/imgs/blogs/5/2/fdc6cbb0-ddc5-4525-884a-9e88f07cf2d8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/html/hmdp/imgs/blogs/6/0/081b4b46-b2c0-47b1-8e2a-8f620d0307fb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/html/hmdp/imgs/blogs/7/1/6f4c2442-1d3b-436f-8d49-cc704f9f0bf8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/html/hmdp/imgs/blogs/7/3/2f6769c9-21de-42f8-adc0-77873273997f.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/html/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/logs/nginx.pid" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx-1.18.0/nginx.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/HmDianPingApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/config/MybatisConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/config/WebExceptionAdvice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/controller/BlogCommentsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/controller/BlogController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/controller/FollowController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/controller/ShopController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/controller/ShopTypeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/controller/UploadController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/controller/VoucherController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/controller/VoucherOrderController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/dto/LoginFormDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/dto/Result.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/dto/ScrollResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/dto/UserDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/entity/Blog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/entity/BlogComments.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/entity/Follow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/entity/SeckillVoucher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/entity/Shop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/entity/ShopType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/entity/UserInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/entity/Voucher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/entity/VoucherOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/mapper/BlogCommentsMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/mapper/BlogMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/mapper/FollowMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/mapper/SeckillVoucherMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/mapper/ShopMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/mapper/ShopTypeMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/mapper/UserInfoMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/mapper/UserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/mapper/VoucherMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/mapper/VoucherOrderMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/service/IBlogCommentsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/service/IBlogService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/service/IFollowService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/service/ISeckillVoucherService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/service/IShopService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/service/IShopTypeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/service/IUserInfoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/service/IUserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/service/IVoucherOrderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/service/IVoucherService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/service/impl/BlogCommentsServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/service/impl/BlogServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/service/impl/FollowServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/service/impl/SeckillVoucherServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/service/impl/ShopServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/service/impl/ShopTypeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/service/impl/UserInfoServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/service/impl/VoucherOrderServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/service/impl/VoucherServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/utils/PasswordEncoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/utils/RedisConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/utils/RedisData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/utils/RegexPatterns.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/utils/RegexUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/utils/SystemConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hmdp/utils/UserHolder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/hmdp.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/VoucherMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/hmdp/HmDianPingApplicationTests.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="E:\software\apache-maven-3.6.2\maven-repo" />
+        <option name="mavenHome" value="E:/software/apache-maven-3.6.2" />
+        <option name="useMavenConfig" value="true" />
+        <option name="userSettingsFile" value="E:\software\apache-maven-3.6.2\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2yB6VdcNi4jGpCTR3AbBmvUHlCC" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Administrator/Desktop/redis_java_project/redisLearningProject_hm-dianping/src/main/resources/application.yaml",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "SDK",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "File.Encoding",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="HmDianPingApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="hm-dianping" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.hmdp.HmDianPingApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="fc369a7f-0807-47e5-b83f-a8ab830a3d86" name="更改" comment="" />
+      <created>1749295648462</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1749295648462</updated>
+      <workItem from="1749295659397" duration="2972000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/hmdp/HmDianPingApplication.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
