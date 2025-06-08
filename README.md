@@ -411,4 +411,316 @@ public class MvcConfig  implements WebMvcConfigurer {
 
 
 ### 集群Session共享存在的问题
-### 
+1. 存在问题，
+    1. 因为在tomcat中的Session是不共享的，如果使用了tomcat集群的话，每个tomcat中的Session都需要重新存储数据，同时可能会造成数据的不一致和数据丢失的可能。
+2. 为了解决session存在问题，同时需要满足
+    1. 数据共享
+    2. 内存存储
+    3. Key、value结构
+3. 从而引入了Redis替代Session
+
+# 四、Redis替代Session的解决方案流程图
+1. 替换流程
+
+![](https://cdn.nlark.com/yuque/0/2025/png/38516294/1749381491694-4edf502e-3fec-49aa-9d39-b3e5d785b95f.png)
+
+![](https://cdn.nlark.com/yuque/0/2025/png/38516294/1749381511465-0a19133b-a9b2-438e-8be6-bc6a7cc4eac3.png)
+
+
+
+### Redis替换Session具体实现
+1. 首先将生成的验证码存入Redis中
+
+```java
+  @Override
+    public Result sendCode(String phone, HttpSession session) {
+
+        // 1 验证手机号
+        if (RegexUtils.isPhoneInvalid(phone)) {
+            return Result.fail("手机号格式错误，请重新输入");
+        }
+        // 2 生成验证码
+        String code = RandomUtil.randomString(6);
+//        // 3 存储验证码
+//        session.setAttribute("code",code);
+        //  3 修改为redis存储
+
+        stringRedisTemplate.opsForValue().set(LOGIN_CODE_KEY+phone,code,LOGIN_CODE_TTL, TimeUnit.MINUTES); // 1分钟过期
+        // 4 发送验证码,模拟，不调用第三方功能
+        log.debug("发送短信验证码成功，验证码：{}",code);
+
+        return Result.ok();
+    }
+```
+
+![](https://cdn.nlark.com/yuque/0/2025/png/38516294/1749381666748-e91abb98-4947-45d9-8a69-ab022669db12.png)
+
+2. 在用户点击登录时，从Redis中获取验证码进行判断
+3. 后续将登录的用户存储到Redis中，并返回Token
+
+```java
+  @Override
+    public Result login(LoginFormDTO loginForm, HttpSession session) {
+        // 1 判断手机号
+        String phone = loginForm.getPhone();
+        if (RegexUtils.isPhoneInvalid(phone)) {
+            return Result.fail("手机号格式错误，请重新输入");
+        }
+        // 2 判断验证码
+        String webCode = loginForm.getCode();
+       // String sessionCode = session.getAttribute("code").toString();
+        // 从redis中获取验证码
+        String sessionCode = stringRedisTemplate.opsForValue().get(LOGIN_CODE_KEY+phone);
+        if (webCode==null || !webCode.equals(sessionCode)) {
+            return Result.fail("验证码错误");
+
+        }
+
+        //
+        log.debug("手机号为：{}；验证码为：{}",phone,sessionCode);
+
+        // 3 查询用户是否存在
+        User user = query().eq("phone",phone).one();
+        System.out.println("-==--------------");
+        System.out.println(user);
+        System.out.println("-==--------------");
+
+        // 4 不存在用户创建
+        if (user==null){
+            user = createUserWithPhone(phone);
+            System.out.println(user);
+        }
+        // 5 存在用户到session中
+        // 6 为了防止敏感信息泄露，将user转存到UserDTO中
+        session.setAttribute("user", BeanUtil.copyProperties(user, UserDTO.class));
+        UserDTO userDTO = BeanUtil.copyProperties(user, UserDTO.class);
+        String token = UUID.randomUUID().toString(false);// 不带下划线的UUID
+
+        // 将UserDTO bean转为HashMap
+        Map<String, Object> userDTOMap = BeanUtil.beanToMap(userDTO);
+//        System.out.println(userDTOMap);
+        userDTOMap.put("id",userDTO.getId().toString()); // StringRedisTamplate 只能存String类型的数据，ID为Long，需要单独处理
+        String tokenKey = LOGIN_USER_KEY+token;
+
+        stringRedisTemplate.opsForHash().putAll(tokenKey, userDTOMap);
+        stringRedisTemplate.expire(tokenKey,LOGIN_USER_TTL, TimeUnit.SECONDS);
+
+        return Result.ok(token);
+    }
+```
+
+4. 登录功能验证
+    1. 用户登录完成后，在访问其他请求时，会进入到拦截器中，从请求的header中获取到Token，再通过Token查询Redis中的用户是否存在。存在就放行，并重新刷新Redis保存数据的TTL，不存在则拦截。
+
+```java
+package com.hmdp.utils;
+
+
+import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.util.StrUtil;
+import com.hmdp.dto.UserDTO;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.web.servlet.HandlerInterceptor;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+
+import static com.hmdp.utils.RedisConstants.LOGIN_USER_KEY;
+import static com.hmdp.utils.RedisConstants.LOGIN_USER_TTL;
+
+/**
+ * 刷新Token拦截器
+ */
+
+public class RefreshTokenInterceptor implements HandlerInterceptor {
+    private StringRedisTemplate stringRedisTemplate;
+    public RefreshTokenInterceptor(StringRedisTemplate stringRedisTemplate ){
+        this.stringRedisTemplate = stringRedisTemplate;
+    }
+
+
+
+    /**
+     * 此方法的作用是在请求进入到Controller进行拦截，有返回值
+     * @param request
+     * @param response
+     * @param handler
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+
+//        // 1 获取session
+//        HttpSession session = request.getSession();
+        // 获取token
+        String token = request.getHeader("authorization");
+        if (StrUtil.isBlank(token)) {
+
+            return  true;
+        }
+        // 2 获取用户
+//        Object user = session.getAttribute("user");
+
+        Map<Object, Object> userMap = stringRedisTemplate.opsForHash().entries(LOGIN_USER_KEY+token);
+
+
+        // 3 判断用户
+        if (userMap.isEmpty()) {
+
+            return true;
+        }
+        UserDTO userDTO = BeanUtil.fillBeanWithMap(userMap, new UserDTO(), false);// map转bean
+// 4  存储用户
+        UserHolder.saveUser(userDTO);
+        // 刷新token有效期
+        stringRedisTemplate.expire(LOGIN_USER_KEY+token,LOGIN_USER_TTL, TimeUnit.SECONDS);
+        // 5 放行
+        return true;
+    }
+
+    /**
+     * 该方法是在ModelAndView返回给前端渲染后执行
+     * @param request
+     * @param response
+     * @param handler
+     * @param ex
+     * @throws Exception
+     */
+
+    @Override
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+       UserHolder.removeUser();
+    }
+}
+
+```
+
+### 登录遗留问题解决
+1. 我们之前在LoginInterceptor中有放行了一些不需要的认证的请求，这样就存在问题了。
+    1. 例如：如果用户登录了，但是一直停留在不需要认证的请求上，Redis的TTL的刷新TTL功能就不会执行，导致用户被强制退出系统。
+2. 解决方案：
+    1. 我们在LoginInterceptor之前在设置一个全局的拦截起，并设置全局拦截，并将Login拦截器内容判断都移动到RefershToken拦截器上，在Refresh执行后再进入到Login拦截器，在判断线程中是否有登录用户，在进行实际的拦截。
+3. 具体实现
+
+LoginInterceptor
+
+```java
+package com.hmdp.utils;
+
+
+import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.util.StrUtil;
+import com.hmdp.dto.UserDTO;
+import com.hmdp.entity.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisOperations;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.web.servlet.HandlerInterceptor;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+
+import static com.hmdp.utils.RedisConstants.LOGIN_USER_KEY;
+import static com.hmdp.utils.RedisConstants.LOGIN_USER_TTL;
+
+/**
+ * 登录拦截器
+ */
+
+public class LoginInterceptor implements HandlerInterceptor {
+
+
+
+
+    /**
+     * 此方法的作用是在请求进入到Controller进行拦截，有返回值
+     * @param request
+     * @param response
+     * @param handler
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        // 获取不到用户，拦截
+        if (UserHolder.getUser()==null) {
+            response.setStatus(401);
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * 该方法是在ModelAndView返回给前端渲染后执行
+     * @param request
+     * @param response
+     * @param handler
+     * @param ex
+     * @throws Exception
+     */
+
+    @Override
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+       UserHolder.removeUser();
+    }
+}
+
+```
+
+RefreshTokenInterceptor如上图
+
+MnvConfig配置类修改如下
+
+```java
+package com.hmdp.config;
+
+
+import com.hmdp.utils.LoginInterceptor;
+
+import com.hmdp.utils.RefreshTokenInterceptor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+@Configuration
+public class MvcConfig  implements WebMvcConfigurer {
+    @Autowired
+    private StringRedisTemplate stringRedisTemplate;
+
+    /**
+     * order值越小，拦截顺序越高。
+     * @param registry
+     */
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor( new RefreshTokenInterceptor(stringRedisTemplate)).order(0);
+
+      registry.addInterceptor(new LoginInterceptor()
+      ).excludePathPatterns(
+              // 放行的路径
+              "/shop/**",
+              "/shop-type/**",
+              "/upload/**",
+              "blog/hot",
+              "/user/code",
+              "/user/login"
+
+      ).order(1);
+
+    }
+}
+
+```
+
+
+
+
+

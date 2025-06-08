@@ -9,7 +9,7 @@ spring:
     username: root
     password: Whltaoin08_
   redis:
-    host: varin.cn
+    host: www.varin.cn
     port: 6379
     password: Whltaoin08_
     lettuce:
