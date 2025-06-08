@@ -76,7 +76,7 @@ public class BlogController {
             Long userId = blog.getUserId();
             User user = userService.getById(userId);
             blog.setName(user.getNickName());
-            blog.setIcon(user.getIcon());
+//            blog.setIcon(user.getIcon());
         });
         return Result.ok(records);
     }
